@@ -2,7 +2,7 @@
 const $ = s => document.querySelector(s);
 const $all = s => document.querySelectorAll(s);
 
-/* ====== Food Data ====== */
+/* ====== Food Data (unchanged) ====== */
 const FOODS = [
   { id:1, region:'長野・ながの', name_jp:'味噌', name_en:'Miso Soup', taste:'umami', image:'images/miso.png', notes:'A powerful pasts of soybeans, best friends with soup.', video:'https://www.youtube.com/embed/O4R2hgvyoDg'},
   { id:2, region:'大阪・おおさか', name_jp:'タコ焼き', name_en:'Takoyaki', taste:'sweet', image:'images/takoyaki.png', notes:'Round dough balls with octopus.', video:'https://www.youtube.com/embed/ciQ9gzK9IWM'},
@@ -123,7 +123,6 @@ function openVideo(embedUrl){
     modal.setAttribute('aria-hidden','false');
   }
 }
-
 function closeModal(){
   const modal = $('#modal');
   if(modal) {
@@ -134,5 +133,108 @@ function closeModal(){
   if(content) content.innerHTML = '';
 }
 
-/* ====== Initialize ====== */
+/* ====== Reveal Animation ====== */
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target) }
+  });
+},{threshold:0.12});
+reveals.forEach(r=>observer.observe(r));
+
+/* ====== Mobile nav toggle ====== */
+const toggleBtn = $('#toggle-nav');
+if(toggleBtn){
+  toggleBtn.addEventListener('click',()=>{
+    const navul = document.querySelector('nav ul');
+    if(navul) navul.classList.toggle('open');
+  });
+}
+
+/* Close mobile menu when link clicked (optional) */
+$all('nav ul li a').forEach(link => {
+  link.addEventListener('click', () => {
+    const navul = document.querySelector('nav ul');
+    if(navul && navul.classList.contains('open')) navul.classList.remove('open');
+  });
+});
+
+/* ====== Scroll to id ====== */
+function scrollToId(id){
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+/* ====== Escape key closes modal ====== */
+document.addEventListener('keydown', e=>{
+  if(e.key === 'Escape') closeModal();
+});
+
+/* ====== Furigana toggle ====== */
+const toggleFuriganaBtn = document.getElementById('toggle-furigana');
+if(toggleFuriganaBtn){
+  toggleFuriganaBtn.addEventListener('click', () => {
+    const allFurigana = document.querySelectorAll('rt');
+    allFurigana.forEach(rt => {
+      rt.style.display = (rt.style.display === 'inline') ? 'none' : 'inline';
+    });
+  });
+}
+
+/* ====== Article download ====== */
+
+async function downloadArticle(filePath = 'recording/kinaga-article.pdf', suggestedName = 'kinaga-article.pdf') {
+  // Try a HEAD request first to check file exists (fast). If HEAD is blocked by CORS,
+  // fetch will throw — we'll fallback to direct-link approach below.
+  try {
+    const headResp = await fetch(filePath, { method: 'HEAD' });
+    if (!headResp.ok) {
+      throw new Error(`File not found (status ${headResp.status})`);
+    }
+    // File exists -> trigger download
+    const a = document.createElement('a');
+    a.href = filePath;
+    a.download = suggestedName; // ask browser to save as this filename
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    return;
+  } catch (err) {
+    // HEAD failed (could be CORS or 404). Fallback: try to download via a simple GET anchor.
+    // Note: if server returns Content-Disposition: inline, some browsers will open PDF in tab.
+    // Setting download attribute still suggests saving.
+    console.warn('HEAD check failed — falling back to direct download link.', err);
+
+    // Create a hidden iframe to force the browser to get the resource (optional)
+    // but most reliable is just creating an anchor with download attribute.
+    const a = document.createElement('a');
+    a.href = filePath;
+    a.download = suggestedName;
+    // If you want it to open in a new tab instead of forcing download: a.target = '_blank'
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    // If you'd like, show a friendly user message on failure
+    // (for example, after a brief delay check if the resource loaded)
+    setTimeout(() => {
+      // Can't reliably detect success across browsers, but we can alert on likely failure
+      // if the user still hasn't started a download (this is heuristic).
+      // Remove this block if you prefer no popups.
+      // alert('If the PDF did not download, please check that the file exists at: ' + filePath);
+    }, 1000);
+  }
+}
+
+// Attach to your download button (existing button id = download-article)
+const dlBtn = document.getElementById('download-article');
+if (dlBtn) {
+  dlBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    // Provide the actual path where you uploaded the PDF
+    downloadArticle('recording/kinaga-article.pdf', 'kinaga-article.pdf');
+  });
+}
+/* ====== Initialize Food List ====== */
 renderFoodList(FOODS);
