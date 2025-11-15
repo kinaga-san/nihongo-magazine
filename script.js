@@ -10,7 +10,7 @@ const FOODS = [
   { id:4, region:'京都・きょうと', name_jp:'豆腐', name_en:'Tofu', taste:['salty','umami'], image:'images/tofu.png', notes:'Soft, quiet, polite protein that absorbs flavors like sponge of peace.', video:'https://www.youtube.com/embed/pjwI5tbQLo0'},
   { id:5, region:'東京・とうきょう', name_jp:'天ぷら', name_en:'Tempura', taste:'sour', image:'images/tenpura.png', notes:'Vegetables or shrimp wearing golden <br>crispy armor of deliciousness.', video:'https://www.youtube.com/embed/s1XtDCPIvtE'},
   { id:6, region:'宇都宮・うつのみや', name_jp:'餃子', name_en:'Gyoza', taste:'salty', image:'images/gyoza.png', notes:'Pan-fried dumplings from Osaka.', video:'https://www.youtube.com/embed/VoTqzjg83u8'},
-  { id:7, region:'関東・かんとう', name_jp:'団子', name_en:'dango', taste:'sweet', image:'images/dango.png', notes:'soft chewy rice balls on a stick.', video:'https://www.youtube.com/embed/NwIV7osGw10'},
+  { id:7, region:'関東・かんとう', name_jp:'団子', name_en:'dango', taste:'sweet', image:'images/dango.png', notes:'Soft chewy rice balls on a stick.', video:'https://www.youtube.com/embed/NwIV7osGw10'},
 ];
 
 /* ====== Render Food List ====== */
