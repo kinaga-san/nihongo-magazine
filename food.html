@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>日本の味・dialect</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon">
+<style>
+  
+</style>
+</head>
+<body>
+
+<header class="topnav" role="banner">
+  <div class="nav-inner">
+    <a class="brand" href="food.html" aria-label="雑誌プロジェクト">
+      <div class="logo">味</div>
+      <div>
+        <div style="font-size:14px">FJCのN2レベル</div>
+      </div>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="Index.html">ホーム</a></li>
+          <li><a href="food.html">日本の味</a></li>
+          <li><a href="dialect.html">方言</a></li>
+        <li><a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfliyLvwOg9tHByiZltqmypr33xbGVwbjqziv8R7DSxpZICjg/viewform?usp=sf_link">Subscribe / 登録</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-controls">
+      <button class="icon-btn" id="toggle-nav" aria-label="open menu">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="home" class="container">
+
+  <header class="hero reveal">
+    <div class="hero-left">
+      <h1>日本の味<span style="font-weight:400; font-size:16px; margin-left:8px">— Food & tasts</span></h1>
+      <p class="lead">タコ焼きはどんあ味をしますか？みそは美味しいですか？皆はどのくらい、和食についてどのくらい知ってますか？
+      僕、子供の頃、سبيسونの　المقاتل النبيلで 見てからずっと、食べ見たかったです。
+      味噌（みそ）も見た目が美味しいで、見ているど食べてみたくなります。
+      私はこれを食べてみたいです、君は？どの食べ物を食べてみたいですか？
+      </p>
+
+      <div class="tags">
+        <span class="tag">作り方/ Recipe</span>
+        <span class="tag">地域 / Region</span>
+        <span class="tag">味 / Flavor</span>
+      </div>
+
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+        <button class="btn" onclick="scrollToId('food')">Explore Food / 食をみる</button>
+        <button class="download-btn" onclick="downloadArticle()">記事をダウンロード • Download</button>
+      </div>
+    </div>
+  </header>
+  <div class="article-wrap">
+    <h1>🍣 日本語版<span style="font-weight:400; font-size:16px; margin-left:8px">— 日本食に初めて興味を持った</span></h1>
+      <div class="reveal">
+        <p class="article" aria-label="Japan map for food regions">
+            私が日本語に初めて興味を持った<span style="color:rgb(248, 139, 13); font-weight: bold;">のは</span>、今から約4年前です。  
+            最初に知った言葉は「たこ焼き」で、dolingoアプリで何度【たこ焼き、たこ焼き」を勉強しても理解できなかった言葉だった<span style="color:rgb(248, 139, 13); font-weight: bold;">けれど</span>。後で調べて、「たこ」はタコ、「焼き」は焼くことだと知りました。  
+            出しました。その場面が面白くて、<span style="color:rgb(248, 139, 13); font-weight: bold;">あれから</span>いつか食べてみたいと思いました。  
+            その経験から、子どものころから日本の食文化や料理の名前に興味を持つ<span style="color:rgb(248, 139, 13); font-weight: bold;">ようになりました。</span>
+            </p>
+          </p>
+      </div>
+    </div>
+  </div>
+  <!-- foood section   -->
+  <section id="food" class="card reveal" aria-labelledby="food-title">
+    <h2 id="food-title">Food / 食</h2>
+
+    <div class="food-top" >
+      <div class="filters">
+        <div class="small muted">Taste / 風味</div>
+        <button class="btn" data-taste="umami" onclick="toggleTaste(this)">Umami 旨味</button>
+        <button class="btn" data-taste="sweet" onclick="toggleTaste(this)">Sweet 甘味</button>
+        <button class="btn" data-taste="sour" onclick="toggleTaste(this)">Sour 酸味</button>
+        <button class="btn" data-taste="salty" onclick="toggleTaste(this)">Salty 塩気</button>
+      </div>
+
+      <div style="display:flex; gap:12px; align-items:center;">
+        <div class="small muted">Season / 季節</div>
+      </div>
+    </div>
+        <div class="food-list" id="food-list">
+          <!-- JS populates -->
+        </div>
+        <div class="dots" id="food-dots"></div>
+    </div>
+  </section>
+
+  <footer class="card small reveal" style="margin-top:100px">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div>© 2025 気長－きなが </div>
+      <div class="small muted">Made with quiet taste. 静かな味わいを込めて。</div>
+    </div>
+  </footer>
+</main>
+
+<!-- MODAL (for video) -->
+<div id="modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal" role="document">
+    <button onclick="closeModal()" style="float:right;border:0;background:none;font-weight:700;cursor:pointer">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>
+
