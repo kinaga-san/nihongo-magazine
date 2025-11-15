@@ -2,15 +2,15 @@
 const $ = s => document.querySelector(s);
 const $all = s => document.querySelectorAll(s);
 
-/* ====== Food Data (unchanged) ====== */
+/* ====== Food Data ====== */
 const FOODS = [
-  { id:1, region:'長野・ながの', name_jp:'味噌', name_en:'Miso Soup', taste:'umami', image:'images/miso.png', notes:'A powerful pasts of soybeans, best friends with soup.', video:'https://youtu.be/O4R2hgvyoDg?si=q6oZi5415ytbcYRq'},
-  { id:2, region:'大阪・おおさか', name_jp:'タコ焼き', name_en:'Takoyaki', taste:'sweet', image:'images/takoyaki.png', notes:'Round dough balls with octopus.', video:'https://youtu.be/ciQ9gzK9IWM?si=sVDo2DXrI_4UJs0FTofuE'},
-  { id:3, region:'香川・かがわ', name_jp:'うどん', name_en:'Udon', taste:'umami', image:'images/udon.png', notes:'Thick noodles so soft they feel like edible clouds.', video:'https://youtu.be/NzoXz-_wk58?si=IjH5wrQr8BmL5-GI'},
-  { id:4, region:'京都・きょうと', name_jp:'豆腐', name_en:'Tofu', taste:['salty','umami'], image:'images/tofu.png', notes:'Soft, quiet, polite protein that absorbs flavors like sponge of peace.', video:'https://youtu.be/pjwI5tbQLo0?si=eCYyyJMKAvBkSoyP'},
-  { id:5, region:'東京・とうきょう', name_jp:'天ぷら', name_en:'Tempura', taste:'sour', image:'images/tenpura.png', notes:'Vegetables or shrimp wearing golden <br>crispy armor of deliciousness.', video:'https://youtu.be/s1XtDCPIvtE?si=-x5-OVZUOMwx94Cx'},
-  { id:6, region:'宇都宮・うつのみや', name_jp:'餃子', name_en:'Gyoza', taste:'salty', image:'images/gyoza.png', notes:'Pan-fried dumplings from Osaka.', video:'https://youtu.be/VoTqzjg83u8?si=tYDzWlO50gpRilS6'},
-  { id:7, region:'関東・かんとう', name_jp:'団子', name_en:'dango', taste:'sweet', image:'images/dango.png', notes:'soft chewy rice balls on a stick.', video:'https://youtu.be/NwIV7osGw10?si=zhk1sByyIUvfLghF'},
+  { id:1, region:'長野・ながの', name_jp:'味噌', name_en:'Miso Soup', taste:'umami', image:'images/miso.png', notes:'A powerful pasts of soybeans, best friends with soup.', video:'https://www.youtube.com/embed/O4R2hgvyoDg'},
+  { id:2, region:'大阪・おおさか', name_jp:'タコ焼き', name_en:'Takoyaki', taste:'sweet', image:'images/takoyaki.png', notes:'Round dough balls with octopus.', video:'https://www.youtube.com/embed/ciQ9gzK9IWM'},
+  { id:3, region:'香川・かがわ', name_jp:'うどん', name_en:'Udon', taste:'umami', image:'images/udon.png', notes:'Thick noodles so soft they feel like edible clouds.', video:'https://www.youtube.com/embed/NzoXz-_wk58'},
+  { id:4, region:'京都・きょうと', name_jp:'豆腐', name_en:'Tofu', taste:['salty','umami'], image:'images/tofu.png', notes:'Soft, quiet, polite protein that absorbs flavors like sponge of peace.', video:'https://www.youtube.com/embed/pjwI5tbQLo0'},
+  { id:5, region:'東京・とうきょう', name_jp:'天ぷら', name_en:'Tempura', taste:'sour', image:'images/tenpura.png', notes:'Vegetables or shrimp wearing golden <br>crispy armor of deliciousness.', video:'https://www.youtube.com/embed/s1XtDCPIvtE'},
+  { id:6, region:'宇都宮・うつのみや', name_jp:'餃子', name_en:'Gyoza', taste:'salty', image:'images/gyoza.png', notes:'Pan-fried dumplings from Osaka.', video:'https://www.youtube.com/embed/VoTqzjg83u8'},
+  { id:7, region:'関東・かんとう', name_jp:'団子', name_en:'dango', taste:'sweet', image:'images/dango.png', notes:'soft chewy rice balls on a stick.', video:'https://www.youtube.com/embed/NwIV7osGw10'},
 ];
 
 /* ====== Render Food List ====== */
@@ -123,6 +123,7 @@ function openVideo(embedUrl){
     modal.setAttribute('aria-hidden','false');
   }
 }
+
 function closeModal(){
   const modal = $('#modal');
   if(modal) {
@@ -133,108 +134,5 @@ function closeModal(){
   if(content) content.innerHTML = '';
 }
 
-/* ====== Reveal Animation ====== */
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target) }
-  });
-},{threshold:0.12});
-reveals.forEach(r=>observer.observe(r));
-
-/* ====== Mobile nav toggle ====== */
-const toggleBtn = $('#toggle-nav');
-if(toggleBtn){
-  toggleBtn.addEventListener('click',()=>{
-    const navul = document.querySelector('nav ul');
-    if(navul) navul.classList.toggle('open');
-  });
-}
-
-/* Close mobile menu when link clicked (optional) */
-$all('nav ul li a').forEach(link => {
-  link.addEventListener('click', () => {
-    const navul = document.querySelector('nav ul');
-    if(navul && navul.classList.contains('open')) navul.classList.remove('open');
-  });
-});
-
-/* ====== Scroll to id ====== */
-function scrollToId(id){
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.scrollIntoView({behavior:'smooth', block:'start'});
-}
-
-/* ====== Escape key closes modal ====== */
-document.addEventListener('keydown', e=>{
-  if(e.key === 'Escape') closeModal();
-});
-
-/* ====== Furigana toggle ====== */
-const toggleFuriganaBtn = document.getElementById('toggle-furigana');
-if(toggleFuriganaBtn){
-  toggleFuriganaBtn.addEventListener('click', () => {
-    const allFurigana = document.querySelectorAll('rt');
-    allFurigana.forEach(rt => {
-      rt.style.display = (rt.style.display === 'inline') ? 'none' : 'inline';
-    });
-  });
-}
-
-/* ====== Article download ====== */
-
-async function downloadArticle(filePath = 'recording/kinaga-article.pdf', suggestedName = 'kinaga-article.pdf') {
-  // Try a HEAD request first to check file exists (fast). If HEAD is blocked by CORS,
-  // fetch will throw — we'll fallback to direct-link approach below.
-  try {
-    const headResp = await fetch(filePath, { method: 'HEAD' });
-    if (!headResp.ok) {
-      throw new Error(`File not found (status ${headResp.status})`);
-    }
-    // File exists -> trigger download
-    const a = document.createElement('a');
-    a.href = filePath;
-    a.download = suggestedName; // ask browser to save as this filename
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    return;
-  } catch (err) {
-    // HEAD failed (could be CORS or 404). Fallback: try to download via a simple GET anchor.
-    // Note: if server returns Content-Disposition: inline, some browsers will open PDF in tab.
-    // Setting download attribute still suggests saving.
-    console.warn('HEAD check failed — falling back to direct download link.', err);
-
-    // Create a hidden iframe to force the browser to get the resource (optional)
-    // but most reliable is just creating an anchor with download attribute.
-    const a = document.createElement('a');
-    a.href = filePath;
-    a.download = suggestedName;
-    // If you want it to open in a new tab instead of forcing download: a.target = '_blank'
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-
-    // If you'd like, show a friendly user message on failure
-    // (for example, after a brief delay check if the resource loaded)
-    setTimeout(() => {
-      // Can't reliably detect success across browsers, but we can alert on likely failure
-      // if the user still hasn't started a download (this is heuristic).
-      // Remove this block if you prefer no popups.
-      // alert('If the PDF did not download, please check that the file exists at: ' + filePath);
-    }, 1000);
-  }
-}
-
-// Attach to your download button (existing button id = download-article)
-const dlBtn = document.getElementById('download-article');
-if (dlBtn) {
-  dlBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    // Provide the actual path where you uploaded the PDF
-    downloadArticle('recording/kinaga-article.pdf', 'kinaga-article.pdf');
-  });
-}
-/* ====== Initialize Food List ====== */
+/* ====== Initialize ====== */
 renderFoodList(FOODS);
