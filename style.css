@@ -45,6 +45,7 @@ body{
   background:linear-gradient(135deg,var(--accent),#e6d3b6);
   display:flex; align-items:center; justify-content:center;
   font-family:"Source Serif 4", serif;
+  font-size:14px;
   color:#fff; font-size:18px;
   box-shadow:0 6px 18px rgba(0,0,0,0.06);
 }
