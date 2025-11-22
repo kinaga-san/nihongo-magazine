@@ -3,7 +3,7 @@
       --text:#21211e; --soft:#efe6db; 
       --radius:12px; --transition:300ms; } 
 *{box-sizing:border-box}
-html,body{ zoom: 1.20; height:100%;} 
+html,body{  height:100%;} 
 body{ margin:0; font-family:"Noto Sans JP",system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
      background: linear-gradient(180deg,var(--bg),#f7f2e9); color:var(--text);
      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; line-height:1.55; padding-top:64px; } 
@@ -13,7 +13,7 @@ body{ margin:0; font-family:"Noto Sans JP",system-ui, -apple-system, "Segoe UI",
            justify-content:space-between; } 
 .brand{ display:flex; gap:12px; align-items:center; font-weight:700; color:var(--text); text-decoration:none; } 
 .brand .logo{ width:55px; height:44px; border-radius:8px; background:linear-gradient(135deg,var(--accent),#e6d3b6);
-             display:flex; align-items:center; justify-content:center; font-family:"Source Serif 4", serif; color:#fff; font-size:18px; box-shadow:0 6px 18px rgba(0,0,0,0.06); } 
+             display:flex; align-items:center; justify-content:center; font-family:"Source Serif 4", serif; color:#fff; font-size:17px; box-shadow:0 6px 18px rgba(0,0,0,0.06); } 
 nav ul{display:flex; gap:12px; list-style:none; padding:0; margin:0;} nav a{ text-decoration:none; color:var(--muted);
                                                                             padding:8px 12px; border-radius:8px; transition:all var(--transition); font-weight:600; font-size:14px; } 
 nav a:hover{ color:var(--text); background:var(--soft); transform:translateY(-2px) } .cta{ background:linear-gradient(90deg,var(--accent),#d79f5e); 
@@ -94,7 +94,7 @@ nav a:hover{ color:var(--text); background:var(--soft); transform:translateY(-2p
 /* ====== MOBILE NAV ====== */
 /* ========================  */
 @media(max-width:980px){
-  html {max-zoom: 1.10;}
+  
   .hero-right{display:none}
   .food-list{ width:100% }
   .container{padding:14px}
@@ -151,7 +151,7 @@ nav a:hover{ color:var(--text); background:var(--soft); transform:translateY(-2p
 
 .dialect-text {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.6;
   padding: 16px;
   border-radius: var(--radius);
