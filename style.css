@@ -45,7 +45,7 @@ body{
   background:linear-gradient(135deg,var(--accent),#e6d3b6);
   display:flex; align-items:center; justify-content:center;
   font-family:"Source Serif 4", serif;
-  color:#fff; font-size:18px;
+  color:#fff; font-size:15px;
   box-shadow:0 6px 18px rgba(0,0,0,0.06);
 }
 nav ul{display:flex; gap:12px; list-style:none; padding:0; margin:0;}
