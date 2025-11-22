@@ -1,107 +1,28 @@
-:root{
-  --bg:#f5efe6;
-  --card:#fff8f0;
-  --accent:#c6a87d;
-  --muted:#716150;
-  --text:#21211e;
-  --soft:#efe6db;
-  --radius:12px;
-  --transition:300ms;
-}
+:root{ --bg:#f5efe6; --card:#fff8f0;
+      --accent:#c6a87d; --muted:#716150; 
+      --text:#21211e; --soft:#efe6db; 
+      --radius:12px; --transition:300ms; } 
 *{box-sizing:border-box}
-html,body{ zoom: 1.20;   height:100%;}
-body{
-  margin:0;
-  font-family:"Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg,var(--bg),#f7f2e9);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.55;
-  padding-top:64px;
-}
-.topnav{
-  position:fixed;
-  top:0; left:0; right:0;
-  height:64px;
-  display:flex; align-items:center; justify-content:center;
-  backdrop-filter: blur(6px);
-  background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.35));
-  border-bottom:1px solid rgba(120,100,80,0.06);
-  z-index:1200;
-  padding:0 16px;
-}
-.nav-inner{
-  width:100%; max-width:1100px;
-  display:flex; gap:20px;
-  align-items:center; justify-content:space-between;
-}
-.brand{
-  display:flex; gap:12px; align-items:center;
-  font-weight:700; color:var(--text); text-decoration:none;
-}
-.brand .logo{
-  width:55px; height:44px; border-radius:8px;
-  background:linear-gradient(135deg,var(--accent),#e6d3b6);
-  display:flex; align-items:center; justify-content:center;
-  font-family:"Source Serif 4", serif;
-  color:#fff; font-size:18px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.06);
-}
-nav ul{display:flex; gap:12px; list-style:none; padding:0; margin:0;}
-nav a{
-  text-decoration:none; color:var(--muted);
-  padding:8px 12px; border-radius:8px;
-  transition:all var(--transition);
-  font-weight:600; font-size:14px;
-}
-nav a:hover{ color:var(--text); background:var(--soft); transform:translateY(-2px) }
-.cta{ background:linear-gradient(90deg,var(--accent),#d79f5e); color:white; box-shadow:0 6px 18px rgba(199,143,88,0.15) }
-
-.mobile-controls{display:none; gap:8px; align-items:center}
-.icon-btn{background:transparent; border:0; padding:6px; border-radius:8px; cursor:pointer}
-.icon-btn svg{width:20px; height:20px; fill:var(--muted)}
-.icon-btn:hover svg{fill:var(--text)}
-
-.container{
-  max-width:1100px; margin:48px auto; padding:24px;
-}
-
-header.hero{
-  display:flex; gap:32px; align-items:flex-start;
-  padding:28px;
-}
-.hero-left{flex:1; min-width:220px}
-.hero-right{width:320px; max-width:40%}
-h1{
-  font-family:"Source Serif 4", serif;
-  font-weight:400; font-size:36px; margin:0 0 10px 0;
-  color:#2b1f13;
-}
-.lead{ color:var(--muted); margin:0 0 18px 0;}
-.tags{ display:flex; gap:8px; margin-top:8px; flex-wrap:wrap}
-.tag{ background:var(--soft); padding:6px 10px; border-radius:999px; font-size:13px; color:var(--muted)}
-
-.btn{ background:transparent; border:1px solid rgba(120,100,80,0.08); padding:8px 12px; border-radius:10px;
-      cursor:pointer; color:var(--muted); transition:all var(--transition); font-weight:600 }
-.btn:hover{ transform:translateY(-3px); color:var(--text) }
-.btn.active{ background:var(--accent); color:white; border:0; box-shadow:0 8px 18px rgba(198,168,125,0.12) }
-
-.download-btn{ background:transparent; border:1px dashed rgba(120,100,80,0.12); padding:8px 12px; border-radius:10px; cursor:pointer }
-
-section.card{ margin-top:28px; border-radius: 24px; padding:18px; box-shadow:0 6px 20px rgba(20,14,7,0.03); }
-
-.about-grid{display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap}
-.social-icons{display:flex; gap:10px; margin-top:12px}
-.social-icons a{ display:flex; align-items:center; gap:8px; padding:8px 12px; background:var(--soft); border-radius:10px; text-decoration:none;
-                  color:var(--muted); font-weight:600 }
-.social-icons a svg{ width:18px; height:18px }
-.food-top{ display:flex; gap:20px; align-items:center; justify-content:space-between; flex-wrap:wrap}
-.filters{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
-
-/* ====== FOOD LIST & CARD FIXES ====== */
-.food-list {
+html,body{ zoom: 1.20; height:100%;} 
+body{ margin:0; font-family:"Noto Sans JP",system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+     background: linear-gradient(180deg,var(--bg),#f7f2e9); color:var(--text);
+     -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; line-height:1.55; padding-top:64px; } 
+.topnav{ position:fixed; top:0; left:0; right:0; height:64px; display:flex; align-items:center; justify-content:center; backdrop-filter: blur(6px); background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.35)); border-bottom:1px solid rgba(120,100,80,0.06);
+        z-index:1200; padding:0 16px; } 
+.nav-inner{ width:100%; max-width:1100px; display:flex; gap:20px; align-items:center;
+           justify-content:space-between; } 
+.brand{ display:flex; gap:12px; align-items:center; font-weight:700; color:var(--text); text-decoration:none; } 
+.brand .logo{ width:55px; height:44px; border-radius:8px; background:linear-gradient(135deg,var(--accent),#e6d3b6);
+             display:flex; align-items:center; justify-content:center; font-family:"Source Serif 4", serif; color:#fff; font-size:18px; box-shadow:0 6px 18px rgba(0,0,0,0.06); } 
+nav ul{display:flex; gap:12px; list-style:none; padding:0; margin:0;} nav a{ text-decoration:none; color:var(--muted);
+                                                                            padding:8px 12px; border-radius:8px; transition:all var(--transition); font-weight:600; font-size:14px; } 
+nav a:hover{ color:var(--text); background:var(--soft); transform:translateY(-2px) } .cta{ background:linear-gradient(90deg,var(--accent),#d79f5e); 
+                                                                                          color:white; box-shadow:0 6px 18px rgba(199,143,88,0.15) } .mobile-controls{display:none; gap:8px; align-items:center}
+.icon-btn{background:transparent; border:0; padding:6px; border-radius:8px; cursor:pointer} 
+.icon-btn svg{width:20px; height:20px; fill:var(--muted)} .icon-btn:hover svg{fill:var(--text)} .container{ max-width:1100px; margin:48px auto; padding:24px; } header.hero{ display:flex; gap:32px; align-items:flex-start; padding:28px; } .hero-left{flex:1; min-width:220px} .hero-right{width:320px; max-width:40%} h1{ font-family:"Source Serif 4", serif; font-weight:400; font-size:36px; margin:0 0 10px 0; color:#2b1f13; } .lead{ color:var(--muted); margin:0 0 18px 0;} .tags{ display:flex; gap:8px; margin-top:8px; flex-wrap:wrap} .tag{ background:var(--soft); padding:6px 10px; border-radius:999px; font-size:13px; color:var(--muted)} .btn{ background:transparent; border:1px solid rgba(120,100,80,0.08); padding:8px 12px; border-radius:10px; cursor:pointer; color:var(--muted); transition:all var(--transition); font-weight:600 } .btn:hover{ transform:translateY(-3px); color:var(--text) } .btn.active{ background:var(--accent); color:white; border:0; box-shadow:0 8px 18px rgba(198,168,125,0.12) } .download-btn{ background:transparent; border:1px dashed rgba(120,100,80,0.12); padding:8px 12px; border-radius:10px; cursor:pointer } section.card{ margin-top:28px; border-radius: 24px; padding:18px; box-shadow:0 6px 20px rgba(20,14,7,0.03); } .about-grid{display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap} .social-icons{display:flex; gap:10px; margin-top:12px} .social-icons a{ display:flex; align-items:center; gap:8px; padding:8px 12px; background:var(--soft); border-radius:10px; text-decoration:none; color:var(--muted); font-weight:600 } .social-icons a svg{ width:18px; height:18px } .food-top{ display:flex; gap:20px; align-items:center; justify-content:space-between; flex-wrap:wrap} .filters{display:flex; gap:10px; align-items:center; flex-wrap:wrap} /* ====== FOOD LIST & CARD FIXES ====== */ .food-list { display: flex; overflow-x: auto; scroll-behavior: smooth; width: 100%; padding: 12px 0; gap: 20px; scroll-snap-type: x mandatory; } .food-list::-webkit-scrollbar { display: none; } .food-card { /* larger, uniform size */ min-width: 160px; max-width: 220px; flex: 0 0 auto; scroll-snap-align: start; background: var(--card); border-radius: var(--radius); box-shadow: 0 6px 14px rgba(24,18,12,0.04); transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition); } .food-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(20,14,8,0.06); } @media(max-width: 520px) { .food-card { min-width: 140px; } } /* ====== DOTS ====== */ .dots { text-align: center; margin-top: 12px; } .dot { display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: var(--muted); margin: 0 6px; cursor: pointer; transition: background 0.3s; } .dot.active { background: var(--accent); } .food-card:hover{ transform:translateY(-6px); box-shadow:0 18px 36px rgba(20,14,8,0.06) } .food-meta{ font-size:13px; color:var(--muted)} .food-actions{ display:flex; gap:8px; margin-top:10px;} .modal-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,0.45); display:none; align-items:center; justify-content:center; z-index:1300; padding:16px} .modal{ background:white; padding:18px; border-radius:12px; max-width:940px; width:100%; max-height:90vh; overflow:auto} .modal video, .modal iframe{ width:100%; height:420px; border-radius:8px; background:#000 } .anime-clip{ flex:1; min-width:280px; background:var(--card); padding:12px; border-radius:12px; text-align:center} .muted{color:var(--muted); font-size:14px} .small{font-size:15px; color:var(--muted)} .article-wrap{ display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap; margin-top:18px;} .article{ flex:1 1 420px; min-width:280px; background:linear-gradient(180deg,#fff,#fff9f5); padding:14px; border-radius:12px; border:1px solid rgba(150,120,90,0.04); position:relative;} /* reveal animation */ .reveal{ opacity:0; transform:translateY(10px); transition:opacity 700ms ease, transform 700ms ease;} .reveal.show{ opacity:1; transform:none; } /* ======================== */ /* ====== MOBILE NAV ====== */ /* ======================== */ @media(max-width:980px){ html {max-zoom: 1.10;} .hero-right{display:none} .food-list{ width:100% } .container{padding:14px} .mobile-controls{display:flex} nav ul{display:none} } @media(max-width:520px){ h1{font-size:28px} .brand .logo{width:40px;height:40px;font-size:16px} body{padding-top:72px} } @media(max-width:980px){ nav ul { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(245, 238, 230, 0.95); flex-direction: column; gap: 0; padding: 12px 0; box-shadow: 0 6px 20px rgba(0,0,0,0.1); z-index: 1000; } nav ul li { width: 100%; margin: 0; } nav ul li a { display: block; padding: 12px 16px; width: 100%; } } @media(max-width:980px) {nav ul.open{ display: flex; }} /* Dialect Section */ .dialect-section-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; padding: 24px 0; } .dialect-column { display: flex; flex-direction: column; gap: 20px; } .dialect-text { font-family: 'Noto Sans JP', sans-serif; font-size: 18px; line-height: 1.6; padding: 16px; border-radius: var(--radius); background: var(--card); transition: background var(--transition), transform var(--transition); cursor: default; } .dialect-text:hover { background: #fff4e6; transform: scale(1.02); } .dialect-audio { width: 100%; outline: none; border-radius: var(--radius); margin-bottom: 24px; } .dialect-tips { background: var(--card); 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  padding: 16px; border-radius: var(--radius); font-size: 15px; line-height: 1.5; box-shadow: 0 4px 16px rgba(0,0,0,0.03); } .dialect-tips h3 { margin-top: 0; margin-bottom: 8px; color: var(--accent); } .dialect-tips ul { padding-left: 16px; margin: 0 0 16px 0; } .dialect-tips li { margin-bottom: 8px; } /* Mobile responsive */ @media(max-width:780px){ .dialect-section-grid{ grid-template-columns: 1fr; } .dialect-tips{ order: -1; margin-bottom: 16px; } }.food-list {
   display: flex;
+  
   overflow-x: auto;
   scroll-behavior: smooth;
   width: 100%;
