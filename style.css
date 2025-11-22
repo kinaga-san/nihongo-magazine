@@ -206,3 +206,26 @@ nav a:hover{ color:var(--text); background:var(--soft); transform:translateY(-2p
     margin-bottom: 16px;
   }
 }
+@media (max-width: 600px) {
+  .container, section.card {
+    padding: 18px;
+  }
+}
+@media (max-width: 700px) {
+  header.hero {
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px;
+  }
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  html {
+    font-size: 13px;
+  }
+}
